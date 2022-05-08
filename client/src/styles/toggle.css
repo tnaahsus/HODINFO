@@ -1,0 +1,94 @@
+
+
+@keyframes reverse {
+    0% {
+        left: 47px;
+        width: 40px;
+    }
+    60% {
+        left: 3px;
+        width: 60px;
+    }
+    100% {
+        left: 3px;
+    }
+}
+    
+@keyframes switch {
+    0% {
+        left: 3px;
+    }
+    60% {
+        left: 3px;
+        width: 60px;
+    }
+    100% {
+        left: 44px;
+        width: 25px;
+    }
+}
+
+.toggle--checkbox {
+    opacity: 0;
+}
+
+.toggle--checkbox:focus + .toggle--label {
+    transition: outline 100ms ease-in;
+}
+
+.container--toggle {
+    display: grid;
+    place-items: center;
+    min-height: 60px;
+    position: relative;
+}
+
+/* background */
+.toggle--label {
+    width: 75px;
+    height: 35px;
+    background: #2E3241;
+    border-radius: 25px;
+    border: 1px solid rgb(168, 168, 168);
+    display: flex;
+    position: relative;
+    transition: all 350ms ease-in;
+    color: #3DC6C1;
+}
+
+.toggle--checkbox:checked + .toggle--label {
+    background: #F8F9FA;
+    color:#3DC6C1;
+    border-color: gray;
+}
+
+/* sun and moon */
+.toggle--checkbox:checked + .toggle--label:before {
+    animation-name: reverse;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    transition: all 360ms ease-in;
+    background: #3DC6C1;
+}
+
+.toggle--label:before {
+    animation-name: switch;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    content: '';
+    width: 25px;
+    height: 25px;
+    border: 2px solid #3DC6C1;
+    top: 2px;
+    left: 4px;
+    position: absolute;
+    border-radius: 25px;
+    background: #3DC6C1;
+}
+
+
+
+.toggle--checkbox:checked + .toggle--label:after {
+    transition-delay: 50ms;
+    opacity: 0;
+}
